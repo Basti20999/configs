@@ -17,7 +17,7 @@ messages:
   outdated-server: Outdated server! I'm still on {0}
   restart: Server is restarting
 settings:
-  bungeecord: false
+  bungeecord: true
   save-user-cache-on-stop-only: false
   sample-count: 12
   player-shuffle: 0
@@ -164,12 +164,12 @@ players:
   disable-saving: false
 config-version: 12
 stats:
-  disable-saving: false
+  disable-saving: true
   forced-stats: {}
 commands:
   tab-complete: 0
-  send-namespaced: true
-  log: true
+  send-namespaced: false
+  log: false
   spam-exclusions:
   - /skill
   silent-commandblock-console: false

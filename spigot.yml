@@ -27,7 +27,7 @@ settings:
   timeout-time: 60
   restart-on-crash: true
   restart-script: ./start.sh
-  netty-threads: 8
+  netty-threads: 6
   attribute:
     maxAbsorption:
       max: 2048.0
@@ -37,7 +37,7 @@ settings:
       max: 1024.0
     attackDamage:
       max: 2048.0
-  log-villager-deaths: true
+  log-villager-deaths: false
   log-named-deaths: true
   debug: false
 advancements:

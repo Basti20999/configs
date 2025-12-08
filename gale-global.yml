@@ -42,5 +42,5 @@ misc:
   verify-chat-order: true
 small-optimizations:
   reduced-intervals:
-    increase-time-statistics: 20
-    update-entity-line-of-sight: 4
+    increase-time-statistics: 100
+    update-entity-line-of-sight: 10

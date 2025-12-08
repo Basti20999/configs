@@ -183,7 +183,6 @@ fixes:
   # If enable this, you should use 'purpur.joinfullserver' permission instead of
   # PlayerLoginEvent#allow to let player join full server.
   dont-place-player-if-server-full: false
-  fix-mc298464: false
 
 ##############
 #  GAMEPLAY  #
@@ -301,12 +300,6 @@ network:
 #  MISC  #
 ##########
 misc:
-  # !!! WARNING !!!
-  # Disabling this is NOT recommended and can lead to severe server instability.
-  # Only disable this if you are an advanced user or debugging a specific issue
-  # and understand the risks involved.
-  async-catcher:
-    enabled: true
   cache:
     profile-lookup:
       # Cache profile data lookups (skins, textures, etc.) to reduce API calls to Mojang.
@@ -317,8 +310,8 @@ misc:
       max-size: 8192
   # Connection message, using MiniMessage format, set to "default" to use vanilla join message.
   # available placeholders:
-  # %player_name% - player name
-  # %player_displayname% - player display name
+  # <player_name> - player name
+  # <player_displayname> - player display name
   connection-message:
     join:
       enabled: true
@@ -340,9 +333,6 @@ misc:
   # Enable player enter backend server through proxy
   # without backend server enabling its bungee mode.
   remove-spigot-check-bungee-config: false
-  # Remove Vanilla username check,
-  # allowing all characters as username.
-  remove-vanilla-username-check: false
   # Once you enable secure seed, all ores and structures are generated with 1024-bit seed
   # instead of using 64-bit seed in vanilla, made seed cracker become impossible.
   secure-seed:
@@ -364,3 +354,14 @@ misc:
     # <message>, show message of the command exception.
     # <detail>, shows detail of the command exception.
     unknown-command: default
+  vanilla-username-check:
+    # Remove Vanilla username check,
+    # allowing all characters as username.
+    # WARNING: UNSAFE, USE AT YOUR OWN RISK!
+    remove-all-check: false
+    # Enforce skull validation,
+    # preventing skulls with invalid names from disconnecting the client.
+    enforce-skull-validation: true
+    # Allow old players to join the server after the username regex is changed,
+    # even if their names don't meet the new requirements.
+    allow-old-players-join: false

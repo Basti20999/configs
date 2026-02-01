@@ -1,5 +1,8 @@
 
 # Leaf Config
+# 
+# Website: https://www.leafmc.one/
+# Docs: https://www.leafmc.one/docs/getting-started
 # GitHub Repo: https://github.com/Winds-Studio/Leaf
 # Discord: https://discord.com/invite/gfgAwdSEuM
 config-version: '3.0'
@@ -122,6 +125,8 @@ performance:
   optimize-player-movement: true
   optimize-random-tick: true
   optimize-waypoint: true
+  # Whether to use optimized powered rails.
+  # The implementation is based on RailOptimization made by GitHub@FxMorin
   optimized-powered-rails: true
   reduce-packets:
     reduce-entity-move-packets: true
@@ -160,9 +165,6 @@ performance:
       min-failed: 8
       spawn-chance: 25.0
     water_ambient:
-      min-failed: 8
-      spawn-chance: 25.0
-    misc:
       min-failed: 8
       spawn-chance: 25.0
   create-snapshot-on-retrieving-blockstate: false
@@ -365,3 +367,10 @@ misc:
     # Allow old players to join the server after the username regex is changed,
     # even if their names don't meet the new requirements.
     allow-old-players-join: false
+    # Use username regex to validate usernames,
+    # allowing only characters specified in the regex.
+    use-username-regex: false
+    # Username regex,
+    # specifying the characters allowed in usernames.
+    # Default: ^[a-zA-Z0-9_.]*$
+    username-regex: ^[a-zA-Z0-9_.]*$

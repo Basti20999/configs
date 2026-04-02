@@ -216,7 +216,7 @@ environment:
   disable-ice-and-snow: false
   disable-teleportation-suffocation-check: false
   disable-thunder: false
-  fire-tick-delay: default
+  fire-tick-delay: 30
   frosted-ice:
     delay:
       max: 40

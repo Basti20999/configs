@@ -285,7 +285,7 @@ gameplay-mechanisms:
 #############
 network:
   # Async switch connection state.
-  async-switch-state: true
+  async-switch-state: false
   # Whether or not enable chat message signature,
   # disable will prevent players to report chat messages.
   # And also disables the popup when joining a server without

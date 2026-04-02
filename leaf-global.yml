@@ -55,7 +55,7 @@ async:
 performance:
   check-survival-before-growth:
     # Check if a cactus can survive before growing.
-    cactus-check-survival: false
+    cactus-check-survival: true
   despawn-time:
     # Proactive despawn check for weak-loaded entities.
     # This is an experimental feature.
@@ -83,7 +83,7 @@ performance:
     # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
     # If you want further away entities to tick less often, use 7.
     # If you want further away entities to tick more often, try 9.
-    activation-dist-mod: 8
+    activation-dist-mod: 7
     # A list of entities to ignore for activation
     blacklisted-entities:
     - villager
@@ -119,7 +119,7 @@ performance:
   # Experimental feature.
   # Reuse BlockPos to reduce memory allocation slightly and improve performance on random ticking.
   # May conflict with certain plugins or operations. Disable if position issues occur.
-  reuse-random-ticking-blockpos: false
+  reuse-random-ticking-blockpos: true
   cache-biome:
     enabled: true
     mob-spawning: true
@@ -139,6 +139,8 @@ performance:
   optimized-powered-rails: true
   reduce-packets:
     reduce-entity-move-packets: true
+    reduce-entity-motion-packets: true
+    disable-useless-particles: true
   skip-ai-for-non-aware-mob: true
   datapack:
     # Skip selecting inactive entities when using execute command.
@@ -283,7 +285,7 @@ gameplay-mechanisms:
 #############
 network:
   # Async switch connection state.
-  async-switch-state: false
+  async-switch-state: true
   # Whether or not enable chat message signature,
   # disable will prevent players to report chat messages.
   # And also disables the popup when joining a server without
@@ -339,7 +341,7 @@ misc:
     enable-for-water: true
     enable-for-lava: true
   # Enable to prevent console spam.
-  remove-change-non-editable-sign-warning: false
+  remove-change-non-editable-sign-warning: true
   # Enable player enter backend server through proxy
   # without backend server enabling its bungee mode.
   remove-spigot-check-bungee-config: false

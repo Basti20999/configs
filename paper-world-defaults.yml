@@ -69,7 +69,7 @@ chunks:
     snowball: -1
   fixed-chunk-inhabited-time: -1
   flush-regions-on-save: false
-  max-auto-save-chunks-per-tick: 24
+  max-auto-save-chunks-per-tick: 12
   prevent-moving-into-unloaded-chunks: false
 collisions:
   allow-player-cramming-damage: false
@@ -128,56 +128,40 @@ entities:
     player-insomnia-start-ticks: 72000
     should-remove-dragon: false
     spawner-nerfed-mobs-should-jump: false
-    stuck-entity-poi-retry-delay: 200
     zombie-villager-infection-chance: default
     zombies-target-turtle-eggs: true
+  entities-target-with-follow-range: false
   markers:
-    tick: true
-  mob-effects:
-    immune-to-wither-effect:
-      wither: true
-      wither-skeleton: true
-    spiders-immune-to-poison-effect: true
-  sniffer:
-    boosted-hatch-time: default
-    hatch-time: default
+    tick: false
   spawning:
     all-chunks-are-slime-chunks: false
-    alt-item-despawn-rate:
-      enabled: false
-      items:
-        cobblestone: 300
     count-all-mobs-for-spawning: false
     creative-arrow-despawn-rate: default
-    despawn-range-shape: ELLIPSOID
     despawn-ranges:
       ambient:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       axolotls:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       creature:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       misc:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       monster:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       underground_water_creature:
-        hard: default
-        soft: default
+        hard: 128
+        soft: 32
       water_ambient:
-        hard: default
-        soft: default
+        hard: 64
+        soft: 32
       water_creature:
-        hard: default
-        soft: default
-    despawn-time:
-      llama_spit: disabled
-      snowball: disabled
+        hard: 128
+        soft: 32
     disable-mob-spawner-spawn-egg-transformation: false
     duplicate-uuid:
       mode: SAFE_REGEN
@@ -186,9 +170,10 @@ entities:
     filtered-entity-tag-nbt-paths:
     - Pos
     - Motion
-    - sleeping_pos
+    - SleepingX
+    - SleepingY
+    - SleepingZ
     iron-golems-can-spawn-in-air: false
-    max-arrow-despawn-invulnerability: 200
     monster-spawn-max-light-level: default
     non-player-arrow-despawn-rate: default
     per-player-mob-spawns: true
@@ -226,37 +211,18 @@ entities:
       underground_water_creature: -1
       water_ambient: -1
       water_creature: -1
-    wandering-trader:
-      spawn-chance-failure-increment: 25
-      spawn-chance-max: 75
-      spawn-chance-min: 25
-      spawn-day-length: 24000
-      spawn-minute-length: 1200
-    wateranimal-spawn-height:
-      maximum: default
-      minimum: default
-  tracking-range-y:
-    animal: default
-    display: default
-    enabled: false
-    misc: default
-    monster: default
-    other: default
-    player: default
 environment:
   disable-explosion-knockback: false
   disable-ice-and-snow: false
+  disable-teleportation-suffocation-check: false
   disable-thunder: false
-  fire-tick-delay: 30
+  fire-tick-delay: default
   frosted-ice:
     delay:
       max: 40
       min: 20
     enabled: true
   generate-flat-bedrock: false
-  locate-structures-outside-world-border: false
-  max-block-ticks: 65536
-  max-fluid-ticks: 65536
   nether-ceiling-void-damage-height: disabled
   optimize-explosions: true
   portal-create-radius: 16

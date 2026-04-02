@@ -51,7 +51,7 @@ world-settings:
     simulation-distance: default
     thunder-chance: 100000
     merge-radius:
-      item: 4.0
+      item: 3.5
       exp: 6.0
     mob-spawn-range: 6
     item-despawn-rate: 6000

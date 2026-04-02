@@ -34,10 +34,10 @@ log-to-console:
 misc:
   ignore-null-legacy-structure-data: false
   keepalive:
-    send-multiple: false
+    send-multiple: true
   last-tick-time-in-tps-command:
-    add-oversleep: false
-    enabled: false
+    add-oversleep: true
+    enabled: true
   premium-account-slow-login-timeout: -1
   verify-chat-order: true
 small-optimizations:

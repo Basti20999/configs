@@ -17,8 +17,10 @@ _version: 31
 anticheat:
   anti-xray:
     enabled: true
-    engine-mode: 2
+    engine-mode: 3
     hidden-blocks:
+    # You can add air here such that many holes are generated.
+    # This works well against cave finders but may cause client FPS drops for all players.
     - air
     - copper_ore
     - deepslate_copper_ore
@@ -35,8 +37,13 @@ anticheat:
     - redstone_ore
     - deepslate_redstone_ore
     lava-obscures: false
+    # As of 1.18 some ores are generated much higher.
+    # Please adjust the max-block-height setting at your own discretion.
+    # https://minecraft.wiki/w/Ore might be helpful.
     max-block-height: 64
     replacement-blocks:
+    # Chest is a tile entity and can't be added to hidden-blocks in engine-mode: 2.
+    # But adding chest here will hide buried treasures, if max-block-height is increased.
     - chest
     - amethyst_block
     - andesite
@@ -128,15 +135,28 @@ entities:
     player-insomnia-start-ticks: 72000
     should-remove-dragon: false
     spawner-nerfed-mobs-should-jump: false
+    stuck-entity-poi-retry-delay: 200
     zombie-villager-infection-chance: default
     zombies-target-turtle-eggs: true
-  entities-target-with-follow-range: false
   markers:
     tick: false
+  mob-effects:
+    immune-to-wither-effect:
+      wither: true
+      wither-skeleton: true
+    spiders-immune-to-poison-effect: true
+  sniffer:
+    boosted-hatch-time: default
+    hatch-time: default
   spawning:
     all-chunks-are-slime-chunks: false
+    alt-item-despawn-rate:
+      enabled: false
+      items:
+        cobblestone: 300
     count-all-mobs-for-spawning: false
     creative-arrow-despawn-rate: default
+    despawn-range-shape: ELLIPSOID
     despawn-ranges:
       ambient:
         hard: 128
@@ -162,6 +182,9 @@ entities:
       water_creature:
         hard: 128
         soft: 32
+    despawn-time:
+      llama_spit: disabled
+      snowball: disabled
     disable-mob-spawner-spawn-egg-transformation: false
     duplicate-uuid:
       mode: SAFE_REGEN
@@ -174,6 +197,7 @@ entities:
     - SleepingY
     - SleepingZ
     iron-golems-can-spawn-in-air: false
+    max-arrow-despawn-invulnerability: 200
     monster-spawn-max-light-level: default
     non-player-arrow-despawn-rate: default
     per-player-mob-spawns: true
@@ -211,10 +235,26 @@ entities:
       underground_water_creature: -1
       water_ambient: -1
       water_creature: -1
+    wandering-trader:
+      spawn-chance-failure-increment: 25
+      spawn-chance-max: 75
+      spawn-chance-min: 25
+      spawn-day-length: 24000
+      spawn-minute-length: 1200
+    wateranimal-spawn-height:
+      maximum: default
+      minimum: default
+  tracking-range-y:
+    animal: default
+    display: default
+    enabled: false
+    misc: default
+    monster: default
+    other: default
+    player: default
 environment:
   disable-explosion-knockback: false
   disable-ice-and-snow: false
-  disable-teleportation-suffocation-check: false
   disable-thunder: false
   fire-tick-delay: 30
   frosted-ice:
@@ -223,6 +263,9 @@ environment:
       min: 20
     enabled: true
   generate-flat-bedrock: false
+  locate-structures-outside-world-border: false
+  max-block-ticks: 65536
+  max-fluid-ticks: 65536
   nether-ceiling-void-damage-height: disabled
   optimize-explosions: true
   portal-create-radius: 16

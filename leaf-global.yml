@@ -128,6 +128,7 @@ performance:
   optimize-mob-despawn: true
   # Whether to only tick / update items in main hand and offhand instead of the entire inventory.
   only-tick-items-in-hand: false
+  optimize-mob-spawning: true
   optimize-no-action-time:
     disable-light-check: false
   # Whether to optimize player movement processing by skipping unnecessary edge checks and avoiding redundant view distance updates.
@@ -179,14 +180,19 @@ performance:
       min-failed: 8
       spawn-chance: 25.0
   create-snapshot-on-retrieving-blockstate: false
-  # Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler.
-  use-virtual-thread-for-async-scheduler: true
-  # Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
-  use-virtual-thread-for-async-chat-executor: true
-  # Use the new Virtual Thread introduced in JDK 21 for profile lookup executor.
-  use-virtual-thread-for-profile-executor: true
-  # Use the new Virtual Thread introduced in JDK 21 for User Authenticator.
-  use-virtual-thread-for-user-authenticator: true
+  use-virtual-thread:
+    # Use the new Virtual Thread introduced in JDK 21 for CraftAsyncScheduler.
+    bukkit-async-scheduler: true
+    # Use the new Virtual Thread introduced in JDK 21 for FoliaAsyncScheduler.
+    folia-async-scheduler: true
+    # Use the new Virtual Thread introduced in JDK 21 for Async Chat Executor.
+    async-chat-executor: true
+    # Use the new Virtual Thread introduced in JDK 21 for profile fetching executor.
+    download-pool: false
+    # Use the new Virtual Thread introduced in JDK 21 for user authentication.
+    auth-pool: true
+    # Use the new Virtual Thread introduced in JDK 21 for Paper task pool in configuration phase.
+    paper-configuration-pool: true
 
 ###########
 #  FIXES  #
@@ -197,6 +203,11 @@ fixes:
     # Whether to fix incorrect granting of 'Who needs rockets?' advancement.
     # Mojira link: https://mojira.dev/MC-270656
     mc-270656: false
+    # Whether to fix the memory leak in the combat tracker caused by the mob constantly being damaged.
+    # Mojira link: https://mojira.dev/MC-301114
+    mc-301114: false
+    # Max allowed entries in mob's combat tracker.
+    mc-301114-max-entries: 10240
   # Prevents entities from moving into weak loaded chunks.
   prevent-moving-into-weak-loaded-chunks:
     # Set to true to enable features below.
@@ -235,16 +246,7 @@ gameplay-mechanisms:
     horizontal-force: 0.5
     # Upward motion for randomly dropped items.
     vertical-force: 0.2
-  # Controls whether specified component information would be sent to clients.
-  # It may break resource packs and mods that rely on the information.
-  # Also, it can avoid some frequent client animations.
-  # Attention: This is not same as Paper's item-obfuscation, we only hide specified component information from player's inventory.
-  hide-item-component:
-    # Which type of components will be hidden from clients.
-    # It needs a component type list, incorrect things will not work.
-    hidden-types: []
-    # If enabled, specified item component information from player's inventory will be hided.
-    enabled: false
+  ice-and-snow-chance: 48
   knockback:
     # Make snowball can knockback players.
     snowball-knockback-players: false

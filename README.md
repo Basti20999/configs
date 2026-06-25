@@ -38,4 +38,4 @@ Feel free to use and modify these configurations for your own servers.
 
 ---
 
-**Last Updated:** April 2026
+**Last Updated:** June 2026
